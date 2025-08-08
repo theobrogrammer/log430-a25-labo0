@@ -13,26 +13,26 @@
 
 ## ⚙️ Setup
 
-### 1. Faire un fork et cloner le dépôt GitLab
+### 1. Faites un fork et clonez le dépôt GitLab
 
 ```bash
 git clone https://github.com/guteacher/log430-a25-labo0
 cd log430-a25-labo0
 ```
 
-### 2. Lancer le conteneur Docker
+### 2. Lancez le conteneur Docker
 
 ```bash
 docker compose up -d
 ```
 
-Vérifie que le conteneur est bien lancé :
+Vérifiez que le conteneur est bien lancé :
 
 ```bash
 docker ps
 ```
 
-### 3. Créer un environnement virtuel Python sur ta machine (pas dans Docker)
+### 3. Créez un environnement virtuel Python sur votre ordinateur (pas dans Docker)
 
 #### Sur Linux/Mac
 ```bash
@@ -47,26 +47,26 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # Si néces
 .venv\labo0\Scripts\activate.ps1
 ```
 
-### 4. Installer les dépendances Python
+### 4. Installez les dépendances Python
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Lancer l’application
+### 5. Lancez l’application
 
 ```bash
 python app.py
 ```
 
-### 6. Exposer la porte 3306 (MySQL) du conteneur à la machine hôte
+### 6. Exposez la porte 3306 (MySQL) du conteneur à la machine hôte
 
 ```yaml
 ports:
   - "3306:3306"  
 ```
 
-### 7. Re-lancer le conteneur Docker
+### 7. Re-lancez le conteneur Docker
 
 ```bash
 docker compose down
@@ -76,9 +76,9 @@ docker compose up -d
 
 ## 🧪 Activités
 
-### 1. Écrire les tests
+### 1. Écrivez les tests
 
-Dans le fichier `test_app.py`, écris des tests pour les fonctions définies dans `app.py`.
+Dans le fichier `test_app.py`, écrivez des tests pour les fonctions définies dans `app.py`.
 
 ```python
 def test_addition():
@@ -90,11 +90,16 @@ Pour lancer les tests localement:
 pytest
 ```
 
-### 2. Pipeline CI (intégration continue)
+Si cela ne marche pas dans votre environnement, vous pouvez essayer:
+```bash
+python3 -m pytest
+```
 
-Ajoute une étape dans `.gitlab-ci.yml` pour que GitLab exécute les tests automatiquement à chaque push.
+### 2. Ajoutez une étape à la pipeline CI (intégration continue)
 
-### 3. Versionner ton code
+Ajoutez une étape (step) dans `.github/workflows/.gitlab-ci.yml` pour que GitLab exécute les tests automatiquement à chaque push. Utilisez la même commande de test de l'activité 1.
+
+### 3. Versionnez votre code
 
 Si tous les tests passent :
 
@@ -106,8 +111,10 @@ git push
 
 Gitlab éxecutera les tests dans son serveur, et ils devront passer également si ils sont corrects.
 
+> 💡 Réfléchissez : en plus des tests, quelles autres étapes sont nécessaires pour garantir qu’un logiciel sera correctement déployé et qu’il ne contiendra pas de bugs majeurs pouvant interrompre son fonctionnement ?
+
 ### 5. Extra: CD
-Après l'execution de tests, déployer l'appli dans le conteneur via SSH.
+Après l'execution de tests, déployez l'appli dans le conteneur via SSH.
 
 ---
 
