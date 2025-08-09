@@ -122,8 +122,12 @@ Après l'execution de tests, déployez l'appli dans le conteneur via SSH.
 
 - Code compressé en `.zip` contenant :
   - l'ensemble du code source du projet Labo 00
+  - 5 diagrammes UML de l'application (use case, classes, sequence, activity, deployment)
 
-- Rapport **PDF** expliquant :
-  - les tests écrits,
-  - le pipeline CI/CD,
-  - les problèmes rencontrés et comment ils ont été résolus.
+- Rapport **PDF** répondant aux questions suivantes :
+  1. Quels sont les bénéfices de l’utilisation des conteneurs dans un environnement de production et de développement ?
+  2. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
+  3. Est-ce que ça vaut la peine de mettre en place un pipeline CI/CD dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
+
+
+
