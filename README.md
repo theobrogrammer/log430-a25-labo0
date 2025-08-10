@@ -47,16 +47,14 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # Si néces
 .venv\labo0\Scripts\activate.ps1
 ```
 
-### 4. Créez un fichier env.json
+### 4. Créez un fichier .env
 Ce fichier est dans .gitignore et ne sera donc pas envoyé au système de contrôle de version, afin de préserver la confidentialité de nos informations de connexion à la base de données.
 
-```json
-{
-    "host": "localhost",
-    "database": "mydb",
-    "username": "user",
-    "password": "pass"
-}
+```bash
+DB_HOST=localhost
+DB_NAME=mydb
+DB_USERNAME=user
+DB_PASSWORD=pass
 ```
 
 ### 5. Installez les dépendances Python

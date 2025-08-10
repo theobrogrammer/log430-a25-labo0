@@ -15,6 +15,13 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Creer fichier env.json
+        run: |
+          echo "DB_HOST=localhost" >> .env
+          echo "DB_NAME=mydb" >> .env
+          echo "DB_USERNAME=user" >> .env
+          echo "DB_PASSWORD=pass" >> .env
+
       - name: Installer les dépendances
         run: |
           python -m pip install --upgrade pip

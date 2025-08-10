@@ -1,3 +1,3 @@
-json
+load_dotenv
 pytest
 mysql-connector-python

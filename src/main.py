@@ -3,7 +3,8 @@ Application example
 SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
-import json
+import os
+from dotenv import load_dotenv
 import mysql.connector
 
 def hello():
@@ -11,12 +12,16 @@ def hello():
 
 def create_mysql_connection():
     try:
-        with open("../env.json") as file:
-            env_vars = json.load(file)          
-        mysql.connector.connect(host=env_vars['host'], user=env_vars['username'], password=env_vars['password'], database=env_vars['database']).close()
+        load_dotenv(dotenv_path="../.env")
+        db_host = os.getenv("DB_HOST")
+        db_name = os.getenv("DB_NAME")
+        db_user = os.getenv("DB_USERNAME")
+        db_pass = os.getenv("DB_PASSWORD")     
+        mysql.connector.connect(host=db_host, user=db_user, password=db_pass, database=db_name).close()
         return "OK"
     except FileNotFoundError as e:
-        return "Attention : Veuillez créer un fichier env.json" 
+        print(e)
+        return "Attention : Veuillez créer un fichier .env" 
     except Exception as e:
         return "Erreur : " + str(e)
 
