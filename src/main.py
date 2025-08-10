@@ -10,12 +10,13 @@ def hello():
     return "Allo"
 
 def create_mysql_connection():
-
-    with open("../env.json") as file:
-        env_vars = json.load(file)
-
     try:
+        with open("../env.json") as file:
+            env_vars = json.load(file)          
         mysql.connector.connect(host=env_vars['host'], user=env_vars['username'], password=env_vars['password'], database=env_vars['database']).close()
+        return "OK"
+    except FileNotFoundError as e:
+        return "Attention : Veuillez créer un fichier env.json" 
     except Exception as e:
         return "Erreur : " + str(e)
 
@@ -38,7 +39,12 @@ def division(x, y):
 
 if __name__ == "__main__":
     message = hello()
-    create_mysql_connection()
+    connection_status = create_mysql_connection()
+
+    if connection_status != "OK":
+        print(connection_status)
+        quit()
+
     result = addition(1, 1)
     print(message)
     print('Résultat :', result)
