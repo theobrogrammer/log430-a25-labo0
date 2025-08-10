@@ -47,26 +47,39 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # Si néces
 .venv\labo0\Scripts\activate.ps1
 ```
 
-### 4. Installez les dépendances Python
+### 4. Créez un fichier env.json
+Ce fichier est dans .gitignore et ne sera donc pas envoyé au système de contrôle de version, afin de préserver la confidentialité de nos informations de connexion à la base de données.
+
+```json
+{
+    "host": "localhost",
+    "database": "mydb",
+    "username": "user",
+    "password": "pass"
+}
+```
+
+### 5. Installez les dépendances Python
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Lancez l’application
+### 6. Lancez l’application
 
 ```bash
-python app.py
+cd src
+python main.py
 ```
 
-### 6. Exposez la porte 3306 (MySQL) du conteneur à la machine hôte
+### 7. Exposez la porte 3306 (MySQL) du conteneur à la machine hôte
 
 ```yaml
 ports:
   - "3306:3306"  
 ```
 
-### 7. Re-lancez le conteneur Docker
+### 8. Re-lancez le conteneur Docker
 
 ```bash
 docker compose down
@@ -78,7 +91,7 @@ docker compose up -d
 
 ### 1. Écrivez les tests
 
-Dans le fichier `test_app.py`, écrivez des tests pour les fonctions définies dans `app.py`.
+Dans le fichier `test_main.py`, écrivez des tests pour les fonctions définies dans `main.py`.
 
 ```python
 def test_addition():
@@ -105,7 +118,7 @@ Si tous les tests passent :
 
 ```bash
 git add .
-git commit -m "Ajout des tests pour app.py"
+git commit -m "Ajout des tests pour main.py"
 git push
 ```
 

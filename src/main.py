@@ -3,15 +3,19 @@ Application example
 SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
-
+import json
 import mysql.connector
 
 def hello():
     return "Allo"
 
 def create_mysql_connection():
+
+    with open("../env.json") as file:
+        env_vars = json.load(file)
+
     try:
-        mysql.connector.connect(host='localhost', user='user', password='pass', database='mydb').close()
+        mysql.connector.connect(host=env_vars['host'], user=env_vars['username'], password=env_vars['password'], database=env_vars['database']).close()
     except Exception as e:
         return "Erreur : " + str(e)
 

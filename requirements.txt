@@ -1,2 +1,3 @@
+json
 pytest
 mysql-connector-python
