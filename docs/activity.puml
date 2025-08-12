@@ -1,0 +1,6 @@
+@startuml
+    start
+        :Effectuer un calcul;
+        :Voir le résultat;
+    stop
+@enduml

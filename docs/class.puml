@@ -1,0 +1,10 @@
+@startuml
+    class Calculator {
+        + hello(): string
+        + create_mysql_connection(): void
+        + addition(): int
+        + subtraction(): int
+        + multiplication(): int
+        + division(): int
+    }
+@enduml
