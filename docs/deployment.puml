@@ -1,8 +1,7 @@
 @startuml
   node MachineVirtuelle {
-    component "Script Python" 
-  }
-  node OrdinateurDev {
-    component "Script Python " 
+      node Conteneur {
+        component "calculator.py" 
+      }
   }
 @enduml

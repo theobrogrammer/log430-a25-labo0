@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ```bash
 cd src
-python main.py
+python calculator.py
 ```
 
 ---
@@ -53,7 +53,7 @@ python main.py
 
 ### 1. Écrivez les tests
 
-Dans le fichier `test_main.py`, écrivez des tests pour les fonctions définies dans `main.py`.
+Dans le fichier `test_calculator.py`, écrivez des tests pour les fonctions définies dans `calculator.py`.
 
 ```python
 def test_addition():
@@ -80,7 +80,7 @@ Si tous les tests passent :
 
 ```bash
 git add .
-git commit -m "Ajout des tests pour main.py"
+git commit -m "Ajout des tests pour calculator.py"
 git push
 ```
 
@@ -114,6 +114,3 @@ df -h     # Vérifier l’espace disque disponible
 - Rapport **PDF** répondant aux questions suivantes :
   1. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
   2. Est-ce que ça vaut la peine de mettre en place un pipeline CI dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
-
-
-
