@@ -1,5 +1,6 @@
 @startuml
     start
+        :Saisir les valeurs;
         :Effectuer un calcul;
         :Voir le résultat;
     stop

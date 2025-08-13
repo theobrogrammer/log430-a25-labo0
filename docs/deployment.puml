@@ -1,7 +1,7 @@
 @startuml
-  node Conteneur {
-    component "Script Python" 
-    database "MySQL"
-    "Script Python" <--> "MySQL"
+  node MachineVirtuelle {
+      node Conteneur {
+        component "calculator.py" 
+      }
   }
 @enduml

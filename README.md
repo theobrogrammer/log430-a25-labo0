@@ -1,13 +1,12 @@
-# Labo 00 – Infrastructure (Git, Docker, CI/CD)
+# Labo 00 – Infrastructure (Git, CI/CD)
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Ets_quebec_logo.png" width="250">    
 ÉTS - LOG430 - Architecture logicielle - Chargé de laboratoire: Gabriel C. Ullmann, Automne 2025.    
 
 ## 🎯 Objectifs d’apprentissage
-
-- Comprendre comment utiliser des conteneurs avec **Docker**.
 - Apprendre à écrire et exécuter des tests automatisés avec **pytest**.
-- Mettre en place un pipeline **CI/CD** avec **GitLab** et **Docker**.
-- Savoir combiner les outils de développement modernes (VS Code, **Git**, **Docker**) pour lancer un cycle de développement logiciel.
+- Mettre en place un pipeline **CI** avec **GitLab** 
+- Accéder à un serveur via SSH et vérifier la disponibilité des ressources computationnelles (CPU, RAM, espace disque)
+- Savoir combiner les outils de développement modernes (VS Code, **Git**) pour lancer un cycle de développement logiciel.
 
 ---
 
@@ -20,19 +19,7 @@ git clone https://github.com/guteacher/log430-a25-labo0
 cd log430-a25-labo0
 ```
 
-### 2. Lancez le conteneur Docker
-
-```bash
-docker compose up -d
-```
-
-Vérifiez que le conteneur est bien lancé :
-
-```bash
-docker ps
-```
-
-### 3. Créez un environnement virtuel Python sur votre ordinateur (pas dans Docker)
+### 2. Créez un environnement virtuel Python sur votre ordinateur
 
 #### Sur Linux/Mac
 ```bash
@@ -47,49 +34,26 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # Si néces
 .venv\labo0\Scripts\activate.ps1
 ```
 
-### 4. Créez un fichier .env
-Ce fichier est dans .gitignore et ne sera donc pas envoyé au système de contrôle de version, afin de préserver la confidentialité de nos informations de connexion à la base de données.
-
-```bash
-DB_HOST=localhost
-DB_NAME=mydb
-DB_USERNAME=user
-DB_PASSWORD=pass
-```
-
-### 5. Installez les dépendances Python
+### 3. Installez les dépendances Python
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 6. Lancez l’application
+### 4. Lancez l’application
 
 ```bash
 cd src
-python main.py
+python calculator.py
 ```
 
-### 7. Exposez la porte 3306 (MySQL) du conteneur à la machine hôte
-
-```yaml
-ports:
-  - "3306:3306"  
-```
-
-### 8. Re-lancez le conteneur Docker
-
-```bash
-docker compose down
-docker compose up -d
-```
 ---
 
 ## 🧪 Activités
 
 ### 1. Écrivez les tests
 
-Dans le fichier `test_main.py`, écrivez des tests pour les fonctions définies dans `main.py`.
+Dans le fichier `test_calculator.py`, écrivez des tests pour les fonctions définies dans `calculator.py`.
 
 ```python
 def test_addition():
@@ -116,7 +80,7 @@ Si tous les tests passent :
 
 ```bash
 git add .
-git commit -m "Ajout des tests pour main.py"
+git commit -m "Ajout des tests pour calculator.py"
 git push
 ```
 
@@ -124,8 +88,23 @@ Gitlab éxecutera les tests dans son serveur, et ils devront passer également s
 
 > 💡 Réfléchissez : en plus des tests, quelles autres étapes sont nécessaires pour garantir qu’un logiciel sera correctement déployé et qu’il ne contiendra pas de bugs majeurs pouvant interrompre son fonctionnement ?
 
-### 5. Extra: CD
-Après l'execution de tests, déployez l'appli dans le conteneur via SSH.
+### 4. Automatiser déploiement continu (CD)
+Après l’exécution des tests, déployez l’application dans le conteneur via SSH :
+
+```bash
+ssh username@192.168.0.1
+git clone https://github.com/guteacher/log430-a25-labo0
+cd log430-a25-labo0
+```
+
+Rédigez ensuite un script pour automatiser le déploiement continu (CD).
+
+Quelques commandes utiles pour vérifier l’état des ressources :
+```bash
+free -h   # Vérifier l’utilisation de la RAM
+top       # Vérifier l’utilisation du CPU et les processus en cours
+df -h     # Vérifier l’espace disque disponible
+```
 
 ---
 
@@ -133,9 +112,7 @@ Après l'execution de tests, déployez l'appli dans le conteneur via SSH.
 
 - Code compressé en `.zip` contenant l'ensemble du code source du projet Labo 00
 - Rapport **PDF** répondant aux questions suivantes :
-  1. Quels sont les bénéfices de l’utilisation des conteneurs dans un environnement de production et de développement ?
-  2. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
-  3. Est-ce que ça vaut la peine de mettre en place un pipeline CI/CD dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
-
+  1. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
+  2. Est-ce que ça vaut la peine de mettre en place un pipeline CI dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
 
 
