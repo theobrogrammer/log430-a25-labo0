@@ -1,6 +1,6 @@
 from test_main import hello
 
 def test_app():
-    assert hello() == "Allo"
+    assert hello() == "Allo Calculatrice"
 
-# TODO: ajouter les tests
+# TODO: ajoutez les tests
