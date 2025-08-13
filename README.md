@@ -3,10 +3,11 @@
 ÉTS - LOG430 - Architecture logicielle - Chargé de laboratoire: Gabriel C. Ullmann, Automne 2025.    
 
 ## 🎯 Objectifs d’apprentissage
+- Comprendre comment utiliser des conteneurs avec **Docker**.
 - Apprendre à écrire et exécuter des tests automatisés avec **pytest**.
-- Mettre en place un pipeline **CI** avec **GitLab** 
+- Mettre en place un pipeline **CI/CD** avec **GitLab** et **Docker**.
 - Accéder à un serveur via SSH et vérifier la disponibilité des ressources computationnelles (CPU, RAM, espace disque)
-- Savoir combiner les outils de développement modernes (VS Code, **Git**) pour lancer un cycle de développement logiciel.
+- Savoir combiner les outils de développement modernes (VS Code, **Git**, **Docker**) pour lancer un cycle de développement logiciel.
 
 ---
 
@@ -19,7 +20,19 @@ git clone https://github.com/guteacher/log430-a25-labo0
 cd log430-a25-labo0
 ```
 
-### 2. Créez un environnement virtuel Python sur votre ordinateur
+### 2. Lancez le conteneur Docker
+
+```bash
+docker compose up -d
+```
+
+Vérifie que le conteneur est bien lancé :
+
+```bash
+docker ps
+```
+
+### 3. Créez un environnement virtuel Python sur votre ordinateur
 
 #### Sur Linux/Mac
 ```bash
@@ -34,13 +47,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # Si néces
 .venv\labo0\Scripts\activate.ps1
 ```
 
-### 3. Installez les dépendances Python
+### 4. Installez les dépendances Python
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Lancez l’application
+### 5. Lancez l’application
 
 ```bash
 cd src
@@ -112,5 +125,6 @@ df -h     # Vérifier l’espace disque disponible
 
 - Code compressé en `.zip` contenant l'ensemble du code source du projet Labo 00
 - Rapport **PDF** répondant aux questions suivantes :
-  1. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
-  2. Est-ce que ça vaut la peine de mettre en place un pipeline CI dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
+  1. Quels sont les bénéfices de l’utilisation des conteneurs dans un environnement de production et de développement ?
+  2. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
+  3. Est-ce que ça vaut la peine de mettre en place un pipeline CI/CD dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
