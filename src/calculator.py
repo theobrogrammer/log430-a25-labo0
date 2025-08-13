@@ -5,8 +5,6 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 import os
 import keyboard
-from dotenv import load_dotenv
-import mysql.connector
 
 class Calculator:
     def hello(self):

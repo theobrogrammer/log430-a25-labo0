@@ -4,8 +4,6 @@ SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 import os
-from dotenv import load_dotenv
-import mysql.connector
 
 class Calculator:
     def hello(self):

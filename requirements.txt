@@ -1,4 +1,2 @@
-load_dotenv
 pytest
-mysql-connector-python
 keyboard
