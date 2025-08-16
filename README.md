@@ -35,6 +35,11 @@ Vérifie que le conteneur est bien lancé :
 docker ps
 ```
 
+Pour accéder au conteneur de manière interactive :
+```bash
+docker exec -it <nom_conteneur> /bin/bash
+```
+
 ### 3. Créez un environnement virtuel Python sur votre ordinateur
 
 #### Sur Linux/Mac
@@ -117,7 +122,7 @@ cd log430-a25-labo0
 
 Rédigez ensuite un script pour automatiser le déploiement continu (CD) dans la machine virtuelle.
 
-> 💡 Question 3 : Quelles commandes avez-vous exécutées pour déployer l'application dans la machine virtuelle ? Veuillez inclure la sortie du terminal dans votre réponse.
+> 💡 Question 3 : Quelles commandes avez-vous exécutées pour automatiser le déploiement continu de l'application dans la machine virtuelle ? Veuillez inclure la sortie du terminal dans votre réponse.
 
 Quelques commandes utiles pour vérifier l’état des ressources :
 ```bash
