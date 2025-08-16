@@ -83,9 +83,11 @@ Si cela ne marche pas dans votre environnement, vous pouvez essayer:
 python3 -m pytest
 ```
 
+> 💡 Question 1 : Si l’un des tests échoue à cause d’un bug, comment pytest signale-t-il l’erreur et aide-t-il à la localiser ? Rédigez un test qui provoque volontairement une erreur, puis montrez la sortie du terminal obtenue.
+
 ### 2. Ajoutez une étape à la pipeline CI (intégration continue)
 
-Ajoutez une étape (step) dans `.github/workflows/.gitlab-ci.yml` pour que GitLab exécute les tests automatiquement à chaque push. Utilisez la même commande de test de l'activité 1.
+Ajoutez une étape (step) dans `.github/workflows/.gitlab-ci.yml` pour que GitLab exécute les tests automatiquement à chaque push. 
 
 ### 3. Versionnez votre code
 
@@ -99,7 +101,7 @@ git push
 
 Gitlab éxecutera les tests dans son serveur, et ils devront passer également si ils sont corrects.
 
-> 💡 Réfléchissez : en plus des tests, quelles autres étapes sont nécessaires pour garantir qu’un logiciel sera correctement déployé et qu’il ne contiendra pas de bugs majeurs pouvant interrompre son fonctionnement ?
+> 💡 Question 2 :  Que fait GitLab pendant les étapes de « setup » et « checkout » ? Veuillez inclure la sortie du terminal Gitlab CI dans votre réponse.
 
 ### 4. Automatiser déploiement continu (CD)
 Après l’exécution des tests, déployez l’application dans le conteneur via SSH :
@@ -110,7 +112,9 @@ git clone https://github.com/guteacher/log430-a25-labo0
 cd log430-a25-labo0
 ```
 
-Rédigez ensuite un script pour automatiser le déploiement continu (CD).
+Rédigez ensuite un script pour automatiser le déploiement continu (CD) dans la machine virtuelle.
+
+> 💡 Question 3 : Quelles commandes avez-vous exécutées pour déployer l'application dans la machine virtuelle ? Veuillez inclure la sortie du terminal dans votre réponse.
 
 Quelques commandes utiles pour vérifier l’état des ressources :
 ```bash
@@ -119,12 +123,10 @@ top       # Vérifier l’utilisation du CPU et les processus en cours
 df -h     # Vérifier l’espace disque disponible
 ```
 
+> 💡 Question 4 : Quel type d'informations pouvez-vous obtenir via la commande « top » ? Veuillez inclure la sortie du terminal dans votre réponse.
 ---
 
 ## 📦 Livrables
 
-- Code compressé en `.zip` contenant l'ensemble du code source du projet Labo 00
-- Rapport **PDF** répondant aux questions suivantes :
-  1. Quels sont les bénéfices de l’utilisation des conteneurs dans un environnement de production et de développement ?
-  2. Vous avez écrit des tests unitaires pour des opérations très simples (addition, soustraction, etc.). Quelle est l’importance des tests à mesure que l’on développe des opérations plus complexes, et aussi lorsqu’on travaille en équipe ?
-  3. Est-ce que ça vaut la peine de mettre en place un pipeline CI/CD dès le début du développement d’une application, ou vaut-il mieux attendre que l’application ait atteint une certaine maturité ?
+- Code compressé en `.zip` contenant **l'ensemble du code source** du projet Labo 00.
+- Rapport `.pdf` répondant aux 4 questions presentées dans ce fichier. Il est **obligatoire** d'ajouter du code ou des sorties de terminal pour illustrer chacune de vos réponses.
