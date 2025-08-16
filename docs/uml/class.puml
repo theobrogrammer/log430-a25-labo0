@@ -1,9 +1,9 @@
 @startuml
     class Calculator {
         + get_hello_message(): string
-        + addition(v1, v2): int
-        + subtraction(v1, v2): int
-        + multiplication(v1, v2): int
-        + division(v1, v2): float
+        + addition(int, int): int
+        + subtraction(int, int): int
+        + multiplication(int, int): int
+        + division(int, int): float
     }
 @enduml
