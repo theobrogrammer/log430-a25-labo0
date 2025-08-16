@@ -12,6 +12,9 @@
 ---
 
 ## ⚙️ Setup
+Dans ce laboratoire, vous travaillerez sur une application calculatrice de base. Elle est implémentée dans un seul script Python, sans connexion à une base de données ni API pour communiquer avec d’autres applications. 
+
+Cette calculatrice est volontairement très simple afin que nous puissions nous concentrer sur la création et la maintenance d’un pipeline CI/CD. Dans les prochains laboratoires, l’architecture logicielle évoluera progressivement et deviendra plus complexe afin que nous puissions explorer d'autres sujets.
 
 ### 1. Faites un fork et clonez le dépôt GitLab
 
