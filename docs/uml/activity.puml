@@ -1,7 +1,7 @@
 @startuml
     start
         :Saisir les valeurs;
-        :Effectuer un calcul;
+        :Effectuer une opération;
         :Voir le résultat;
     stop
 @enduml

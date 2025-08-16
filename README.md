@@ -93,7 +93,7 @@ Si tous les tests passent :
 
 ```bash
 git add .
-git commit -m "Ajout des tests pour calculator.py"
+git commit -m "Tests pour calculator.py"
 git push
 ```
 

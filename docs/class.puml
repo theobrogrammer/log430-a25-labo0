@@ -1,9 +1,0 @@
-@startuml
-    class Calculator {
-        + hello(): string
-        + addition(): int
-        + subtraction(): int
-        + multiplication(): int
-        + division(): int
-    }
-@enduml

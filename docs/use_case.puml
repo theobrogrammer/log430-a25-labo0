@@ -1,6 +1,0 @@
-@startuml
-    Utilisateur --> (Additionner)
-    Utilisateur --> (Soustraire)
-    Utilisateur --> (Multiplier)
-    Utilisateur --> (Diviser)
-@enduml

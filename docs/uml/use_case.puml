@@ -1,0 +1,6 @@
+@startuml
+    Utilisateur --> (Additionner des valeurs)
+    Utilisateur --> (Soustraire des valeurs)
+    Utilisateur --> (Multiplier des valeurs)
+    Utilisateur --> (Diviser des valeurs)
+@enduml
