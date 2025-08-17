@@ -8,21 +8,26 @@ class Calculator:
         self.last_result = 0
 
     def get_hello_message(self):
+        """ Show welcome message """
         return "Calculatrice"
 
     def addition(self, v1, v2):
+        """ Add 2 values """
         self.last_result = v1 + v2
         return self.last_result
 
     def subtraction(self, v1, v2):
+        """ Subtract 2 values """
         self.last_result = v1 - v2
         return self.last_result
 
     def multiplication(self, v1, v2):
+        """ Multiply 2 values. """
         self.last_result = v1 * v2
         return self.last_result
 
     def division(self, v1, v2):
+        """ Divide 2 values. Show an error if V2 is zero. """
         if (v2 != 0):
             self.last_result = v1 / v2
             return self.last_result
