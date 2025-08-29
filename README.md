@@ -6,13 +6,13 @@
 - Comprendre comment utiliser des conteneurs avec **Docker**.
 - Apprendre à écrire et exécuter des tests automatisés avec **pytest**.
 - Mettre en place un pipeline **CI/CD** avec **GitLab** et **Docker**.
-- Accéder à un serveur via SSH et vérifier la disponibilité des ressources computationnelles (CPU, RAM, espace disque)
+- Accéder à un serveur via **SSH** et vérifier la disponibilité des ressources computationnelles (CPU, RAM, espace disque)
 - Savoir combiner les outils de développement modernes (VS Code, **Git**, **Docker**) pour lancer un cycle de développement logiciel.
 
 ---
 
 ## ⚙️ Setup
-Dans ce laboratoire, vous travaillerez sur une application calculatrice de base. Elle est implémentée dans un seul script Python, sans connexion à une base de données ni API pour communiquer avec d’autres applications. 
+Dans ce laboratoire, vous travaillerez sur une application calculatrice de base. Elle est implémentée dans un seul script Python, sans connexion à une base de données ni API pour communiquer avec d’autres applications. Veuillez utiliser les diagrammes UML disponibles dans le dossier `docs/views` comme référence pour mieux comprendre l’implementation. 
 
 Cette calculatrice est volontairement très simple afin que nous puissions nous concentrer sur la création et la maintenance d’un pipeline CI/CD. Dans les prochains laboratoires, l’architecture logicielle évoluera progressivement et deviendra plus complexe afin que nous puissions explorer d'autres sujets.
 
@@ -91,7 +91,7 @@ Si cela ne marche pas dans votre environnement, vous pouvez essayer:
 python3 -m pytest
 ```
 
-> 💡 Question 1 : Si l’un des tests échoue à cause d’un bug, comment pytest signale-t-il l’erreur et aide-t-il à la localiser ? Rédigez un test qui provoque volontairement une erreur, puis montrez la sortie du terminal obtenue.
+> 💡 **Question 1** : Si l’un des tests échoue à cause d’un bug, comment pytest signale-t-il l’erreur et aide-t-il à la localiser ? Rédigez un test qui provoque volontairement une erreur, puis montrez la sortie du terminal obtenue.
 
 ### 2. Ajoutez une étape à la pipeline CI (intégration continue)
 
@@ -109,7 +109,7 @@ git push
 
 Gitlab éxecutera les tests dans son serveur, et ils devront passer également si ils sont corrects.
 
-> 💡 Question 2 :  Que fait GitLab pendant les étapes de « setup » et « checkout » ? Veuillez inclure la sortie du terminal Gitlab CI dans votre réponse.
+> 💡 **Question 2** :  Que fait GitLab pendant les étapes de « setup » et « checkout » ? Veuillez inclure la sortie du terminal Gitlab CI dans votre réponse.
 
 ### 4. Automatiser déploiement continu (CD)
 Après l’exécution des tests, déployez l’application dans le conteneur via SSH manuellement:
@@ -125,7 +125,7 @@ Procédez ensuite à la mise en place de l’automatisation du déploiement cont
 - https://docs.gitlab.com/user/project/integrations/webhooks/#create-a-webhook
 - https://docs.gitlab.com/user/project/integrations/webhook_events/#job-events
 
-> 💡 Question 3 : Quel approache et quelles commandes avez-vous exécutées pour automatiser le déploiement continu de l'application dans la machine virtuelle ? Veuillez inclure les sorties du terminal et les scripts bash dans votre réponse.
+> 💡 **Question 3** : Quel approache et quelles commandes avez-vous exécutées pour automatiser le déploiement continu de l'application dans la machine virtuelle ? Veuillez inclure les sorties du terminal et les scripts bash dans votre réponse.
 
 Quelques commandes utiles pour vérifier l’état des ressources :
 ```bash
@@ -134,7 +134,7 @@ top       # Vérifier l’utilisation du CPU et les processus en cours
 df -h     # Vérifier l’espace disque disponible
 ```
 
-> 💡 Question 4 : Quel type d'informations pouvez-vous obtenir via la commande « top » ? Veuillez inclure la sortie du terminal dans votre réponse.
+> 💡 **Question 4** : Quel type d'informations pouvez-vous obtenir via la commande « top » ? Veuillez inclure la sortie du terminal dans votre réponse.
 ---
 
 ## 📦 Livrables
