@@ -12,9 +12,11 @@
 ---
 
 ## ⚙️ Setup
-Dans ce laboratoire, vous travaillerez sur une application calculatrice de base. Elle est implémentée dans un seul script Python, sans connexion à une base de données ni API pour communiquer avec d’autres applications. Veuillez utiliser les diagrammes UML disponibles dans le dossier `docs/views` comme référence pour mieux comprendre l’implementation. 
+Dans ce laboratoire, vous travaillerez sur une application calculatrice. Cette calculatrice est volontairement très simple afin que nous puissions nous concentrer sur la configuration du projet, ainsi que sur la création et la maintenance d'un pipeline CI/CD. 
 
-Cette calculatrice est volontairement très simple afin que nous puissions nous concentrer sur la création et la maintenance d’un pipeline CI/CD. Dans les prochains laboratoires, l’architecture logicielle évoluera progressivement et deviendra plus complexe afin que nous puissions explorer d'autres sujets.
+Dans les prochains laboratoires, nous verrons des architectures plus complexes et nous travaillerons avec une variété d'outils logiciels et de concepts architecturaux.
+
+> ⚠️ IMPORTANT : Avant de commencer le setup et les activités, veuillez lire la documentation architecturale dans le répertoire `/docs/arc42/docs.pdf`.
 
 ### 1. Faites un fork et clonez le dépôt GitLab
 

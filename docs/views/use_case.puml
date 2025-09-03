@@ -1,6 +1,6 @@
 @startuml
-    Utilisateur --> (Additionner des valeurs)
-    Utilisateur --> (Soustraire des valeurs)
-    Utilisateur --> (Multiplier des valeurs)
-    Utilisateur --> (Diviser des valeurs)
+    Utilisateur.trice --> (Additionner des valeurs)
+    Utilisateur.trice --> (Soustraire des valeurs)
+    Utilisateur.trice --> (Multiplier des valeurs)
+    Utilisateur.trice --> (Diviser des valeurs)
 @enduml
