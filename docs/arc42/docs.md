@@ -4,7 +4,7 @@ Ce document, basé sur le modèle arc42, décrit une application calculatrice po
 ## 1. Introduction et Objectifs
 
 ### Panorama des exigences
-L'application « Calculatrice » est une application Python simple pour effectuer des opérations mathématiques de base. Elle sert de projet éducatif pour démontrer :
+L'application « Calculatrice » est une application Python simple pour effectuer des opérations mathématiques de base (addition, soustraction, multiplication et division). Elle sert de projet éducatif pour démontrer :
 - L'utilisation de conteneurs avec Docker
 - L'écriture et l'exécution de tests automatisés avec pytest
 - La mise en place d'un pipeline CI/CD avec GitLab et Docker
@@ -74,13 +74,7 @@ Le système permet aux utilisateurs de :
 - Surveillance des ressources système
 
 ## 9. Décisions d'architecture
-
-| Décision | Justification | Conséquences |
-|----------|---------------|--------------|
-| **Application monolithique simple** | Focus sur l'apprentissage de l'infrastructure plutôt que la complexité architecturale | Architecture limitée mais objectifs pédagogiques atteints |
-| **Docker pour développement** | Environnement reproductible et isolation | Overhead supplémentaire mais cohérence garantie |
-| **Pipeline GitLab CI/CD** | Automatisation des tests et déploiement | Apprentissage des bonnes pratiques DevOps |
-| **Tests avec pytest** | Framework de test Python standard | Couverture de test et qualité du code assurées |
+Veuillez consulter le fichier `/docs/adr/adr001.md`.
 
 ## 10. Exigences qualité
 
