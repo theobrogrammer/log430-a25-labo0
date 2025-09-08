@@ -9,7 +9,7 @@ class Calculator:
 
     def get_hello_message(self):
         """ Show welcome message """
-        return "Calculatrice"
+        return "== Calculatrice v1.0 =="
 
     def addition(self, v1, v2):
         """ Add 2 values """
@@ -36,12 +36,17 @@ class Calculator:
             return "Erreur : division par zéro"
 
 if __name__ == "__main__":
+    is_running = 1
     my_calculator = Calculator()
     message = my_calculator.get_hello_message()
     print(message)
 
-    print("== Addition ==")
-    val_x = input("Saisissez la valeur 1 : ")
-    val_y = input("Saisissez la valeur 2 : ")
-    my_calculator.addition(int(val_x), int(val_y))
-    print('V1 + V2 =', my_calculator.last_result)
+    while is_running == 1:
+        print("Operation : additionner deux valeurs")
+        val_x = input("Saisissez la valeur 1 : ")
+        val_y = input("Saisissez la valeur 2 : ")
+        my_calculator.addition(int(val_x), int(val_y))
+        print('V1 + V2 =', my_calculator.last_result)
+        is_running = int(input("Voulez-vous faire une autre addition ? [1 = Oui | 2 = Non] : "))
+
+    print("Au revoir :)")
