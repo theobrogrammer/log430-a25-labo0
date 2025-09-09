@@ -111,13 +111,15 @@ Gitlab éxecutera les tests dans son serveur, et ils devront passer également s
 > 💡 **Question 2** :  Que fait GitLab pendant les étapes de « setup » et « checkout » ? Veuillez inclure la sortie du terminal Gitlab CI dans votre réponse.
 
 ### 4. Automatiser déploiement continu (CD)
-Après l’exécution des tests, déployez l’application dans le conteneur via SSH manuellement:
+Après l’exécution des tests, déployez l’application dans un serveur ou machine virtuelle via SSH manuellement:
 
 ```bash
 ssh $my_username@$my_hostname
 git clone https://github.com/guteacher/log430-a25-labo0
 cd log430-a25-labo0
 ```
+
+>  📝 **NOTE** : N'oubliez pas d'installer Python, Docker et toutes les dépendances nécessaires sur le serveur de déploiement.
 
 Procédez ensuite à la mise en place de l’automatisation du déploiement continu (CD) dans la machine virtuelle à l’aide de GitLab et de scripts Bash. Les approches les plus courantes pour implémenter le CD consistent à effectuer le déploiement via SSH ou à utiliser un webhook. Vous trouverez ci-dessous quelques liens de réference :
 - https://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/ 
