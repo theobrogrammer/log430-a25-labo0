@@ -64,3 +64,5 @@ def test_division_by_zero_error():
     result = my_calculator.division(10, 0)
     
     assert isinstance(result, float)
+    
+#CI ça marches tu???
