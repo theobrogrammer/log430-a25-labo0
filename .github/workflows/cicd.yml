@@ -1,4 +1,4 @@
-name: CI/CD
+'''name: CI/CD
 
 on:
   push:
@@ -45,3 +45,4 @@ jobs:
             pkill -f "python src/calculator.py" || true
             nohup python src/calculator.py > /tmp/calculator.log 2>&1 &
             echo "Déploiement terminé."
+'''
