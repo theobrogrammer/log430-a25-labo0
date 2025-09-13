@@ -3,6 +3,8 @@ Calculator app
 SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
+import time
+import argparse
 class Calculator:
     def __init__(self):
         self.last_result = 0
@@ -35,8 +37,9 @@ class Calculator:
             self.last_result = "Error"
             return "Erreur : division par zéro"
 
-if __name__ == "__main__":
-    is_running = 1
+
+    def run_interactive():
+        is_running = 1
     my_calculator = Calculator()
     message = my_calculator.get_hello_message()
     print(message)
@@ -50,3 +53,26 @@ if __name__ == "__main__":
         is_running = int(input("Voulez-vous faire une autre addition ? [1 = Oui | 2 = Non] : "))
 
     print("Au revoir :)")
+    
+    
+    def run_service():
+    
+        calc = Calculator()
+    print(calc.get_hello_message())
+    print("[service] démarré. PID:", __import__("os").getpid(), flush=True)
+    # Boucle infinie légère pour apparaître dans `top`
+    while True:
+        calc.addition(2, 3)  # fait 'vivre' l'app
+        print(f"[service] heartbeat, last_result={calc.last_result}", flush=True)
+        time.sleep(30)  # intervalle raisonnable
+    
+    
+    if __name__ == "__main__":
+         parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["interactive", "service"], default="interactive")
+    args = parser.parse_args()
+
+    if args.mode == "service":
+        run_service()
+    else:
+        run_interactive()
