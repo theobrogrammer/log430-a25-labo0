@@ -19,12 +19,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy locally (no SSH)
+      - name: Deploy with Docker (no SSH)
         run: |
           set -e
-          python3 -m venv .venv/labo0 || true
-          . .venv/labo0/bin/activate
-          pip install -r requirements.txt
-          pkill -f "python src/calculator.py" || true
-          nohup python src/calculator.py > /tmp/calculator.log 2>&1 &
-          echo "Déployé. Logs: /tmp/calculator.log"
+          docker build -t labo0-calculator .
+          docker ps -q --filter "name=labo0-calculator" | xargs -r docker stop
+          docker run -d --rm --name labo0-calculator labo0-calculator
+          echo "Conteneur démarré."
