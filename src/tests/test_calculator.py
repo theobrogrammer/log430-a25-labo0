@@ -65,5 +65,4 @@ def test_division_by_zero():
     
   #  assert isinstance(result, float)
     
-#CI ça marches tu??? TEST 2
-#test cd 4
+# test runner on main
