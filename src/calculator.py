@@ -38,11 +38,23 @@ class Calculator:
             return "Erreur : division par zéro"
 
 
-    def run_interactive():
-        is_running = 1
+
+
+
+
+
+
+
+
+
+
+
+
+   #  OUTSIDE the class
+def run_interactive():
+    is_running = 1
     my_calculator = Calculator()
-    message = my_calculator.get_hello_message()
-    print(message)
+    print(my_calculator.get_hello_message())
 
     while is_running == 1:
         print("Operation : additionner deux valeurs")
@@ -53,22 +65,22 @@ class Calculator:
         is_running = int(input("Voulez-vous faire une autre addition ? [1 = Oui | 2 = Non] : "))
 
     print("Au revoir :)")
-    
-    
-    def run_service():
-    
-        calc = Calculator()
+
+
+def run_service():
+    import os, time
+    calc = Calculator()
     print(calc.get_hello_message())
-    print("[service] démarré. PID:", __import__("os").getpid(), flush=True)
-    # Boucle infinie légère pour apparaître dans `top`
+    print("[service] démarré. PID:", os.getpid(), flush=True)
     while True:
-        calc.addition(2, 3)  # fait 'vivre' l'app
+        calc.addition(2, 3)
         print(f"[service] heartbeat, last_result={calc.last_result}", flush=True)
-        time.sleep(30)  # intervalle raisonnable
-    
-    
-    if __name__ == "__main__":
-         parser = argparse.ArgumentParser()
+        time.sleep(30)
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["interactive", "service"], default="interactive")
     args = parser.parse_args()
 
