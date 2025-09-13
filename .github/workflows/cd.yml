@@ -1,4 +1,4 @@
-'''name: CD
+name: CD
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Deploy to VM via SSH
@@ -26,4 +26,3 @@ jobs:
           pkill -f "python src/calculator.py" || true
           nohup python src/calculator.py > /tmp/calculator.log 2>&1 &
           echo "Déploiement terminé."
-'''
