@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY src/ ./src/
 
-CMD ["python", "src/calculator.py"]
+CMD ["python", "src/calculator.py", "--mode", "service"]

@@ -1,48 +1,28 @@
-'''name: CI/CD
+name: CI/CD self-hosted
 
 on:
   push:
-    branches: [ "tests-calculatrice" ]  # change to "main" later
+    branches: [ "tests-calculatrice" ]   # puis "main" plus tard
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run tests
-        run: pytest -q
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: pytest -q
 
   deploy:
-    needs: test      # 🚀 ensures CD only runs if CI passed
-    runs-on: ubuntu-latest
-    if: ${{ success() }}   # optional: extra safety
+    needs: test
+    runs-on: self-hosted
     steps:
-      - name: Deploy to VM via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: 22
-          script: |
-            set -e
-            cd ~/log430-a25-labo0 || git clone https://github.com/theobrogrammer/log430-a25-labo0 ~/log430-a25-labo0
-            cd ~/log430-a25-labo0
-            git pull --rebase
-            python3 -m venv .venv/labo0 || true
-            . .venv/labo0/bin/activate
-            pip install -r requirements.txt
-            pkill -f "python src/calculator.py" || true
-            nohup python src/calculator.py > /tmp/calculator.log 2>&1 &
-            echo "Déploiement terminé."
-'''
+      - uses: actions/checkout@v4
+      - name: Deploy with Docker (no SSH)
+        run: |
+          set -e
+          docker build -t labo0-calculator .
+          docker ps -q --filter "name=labo0-calculator" | xargs -r docker stop
+          docker run -d --rm --name labo0-calculator labo0-calculator
+          echo "Conteneur démarré."
