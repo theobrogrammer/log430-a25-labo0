@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY src/ ./src/
 
-CMD ["python", "src/calculator.py", "--mode", "service"]
+ENTRYPOINT ["python", "src/calculator.py"]
+# Default args (can be overridden at docker run)
+CMD ["--mode", "service"]
