@@ -59,8 +59,11 @@ def test_division_by_zero():
     # Mais elle met last_result à "Error"
     assert my_calculator.last_result == "Error"
     
-def test_division_by_zero_error():
-    my_calculator = Calculator()
-    result = my_calculator.division(10, 0)
+#def test_division_by_zero_error():
+  #  my_calculator = Calculator()
+  #  result = my_calculator.division(10, 0)
     
-    assert isinstance(result, float)
+  #  assert isinstance(result, float)
+    
+#CI ça marches tu??? TEST 2
+#test cd

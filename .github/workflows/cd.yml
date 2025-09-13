@@ -1,0 +1,29 @@
+'''name: CD
+
+on:
+  push:
+    branches: [ "tests-calculatrice" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to VM via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          set -e
+          cd ~/log430-a25-labo0 || git clone https://github.com/theobrogrammer/log430-a25-labo0 ~/log430-a25-labo0
+          cd ~/log430-a25-labo0
+          git pull --rebase
+          python3 -m venv .venv/labo0 || true
+          . .venv/labo0/bin/activate
+          pip install -r requirements.txt
+          pkill -f "python src/calculator.py" || true
+          nohup python src/calculator.py > /tmp/calculator.log 2>&1 &
+          echo "Déploiement terminé."
+'''
